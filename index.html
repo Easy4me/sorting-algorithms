@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<hmtl lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale=1.0>
+        <title>Four Sorting Algorithms</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header>
+            <h1> Four Sorting Algorithms</h1>
+        </header>
+        <main>
+            <div id="Insertion-sort" class="Algorithms"></div>
+            <h2> Insertion Sort</h2>
+            <p>
+                Insertion sort is a simple sorting algorithm that builds the sorted
+                array one item at a time. It is much like sorting playing cards in
+                your hands.
+            </p>
+            <pre><code class="language-javascript">
+                function insertionSort(arr) {
+                    for (let i = 1; i < arr.length; i++) {
+                        let key = arr[i];
+                        let j = i - 1;
+                        while (j >= 0 && arr[j] > key) {
+                            arr[j + 1] = arr[j];
+                            j--;
+                        }
+                        arr[j + 1] = key;
+                    }
+                    return arr;
+                }
+            <div id="Bubble Sort" class="Algorithms"></div>
+            <h2> Bubble Sort</h2>
+            <p>
+                Repeatedly compares adjacent elements and swaps them if they are in the wrong order.
+            </p>
+            <pre><code class="language-javascript">
+                function bubbleSort(arr) {
+                    let n = arr.length;
+                    let swapped;
+                    do {
+                        swapped = false;
+                        for (let i = 0; i < n - 1; i++) {
+                            if (arr[i] > arr[i + 1]) {
+                                [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]; // Swap elements
+                                swapped = true;
+                            }
+                        }
+                    } while (swapped);
+                    return arr;
+                }
+
+                <h2> Selection Sort</h2>
+                <p>
+                    Finds the smallest element and swaps it with the first unsorted element.
+                </p>
+                <pre><code class="language-javascript">
+                    function selectionSort(arr) {
+                        let n = arr.length;
+                        for (let i = 0; i < n - 1; i++) {
+                            let minIndex = i;
+                            for (let j = i + 1; j < n; j++) {
+                                if (arr[j] < arr[minIndex]) {
+                                    minIndex = j;
+                                }
+                            }
+                            [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]]; // Swap elements
+                        }
+                        return arr;
+                    }
+                     <h2> Selection Sort</h2>
+                <p>
+                    Finds the smallest element and swaps it with the first unsorted element.
+                </p>
+                <pre><code class="language-javascript">
+                    function selectionSort(arr) {
+                        let n = arr.length;
+                        for (let i = 0; i < n - 1; i++) {
+                            let minIndex = i;
+                            for (let j = i + 1; j < n; j++) {
+                                if (arr[j] < arr[minIndex]) {
+                                    minIndex = j;
+                                }
+                            }
+                            [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]]; // Swap elements
+                        }
+                        return arr;
+                    }
+
+                    <h2> Merge Sort</h2>
+                    <p>
+                        Uses the divide and conquer method—splits the array into halves, sorts them, and merges them back.                    </p>
+                    <pre><code class="language-javascript">
+                        function mergeSort(arr) {
+                            if (arr.length < 2) return arr;
+                        
+                            let mid = Math.floor(arr.length / 2);
+                            let left = mergeSort(arr.slice(0, mid));
+                            let right = mergeSort(arr.slice(mid));
+                        
+                            return merge(left, right);
+                        }
+                        
+                        function merge(left, right) {
+                            let sortedArr = [];
+                            while (left.length && right.length) {
+                                if (left[0] < right[0]) {
+                                    sortedArr.push(left.shift());
+                                } else {
+                                    sortedArr.push(right.shift());
+                                }
+                            }
+                            return [...sortedArr, ...left, ...right];
+                        }
+                        
+                        // Example Usage
+                        console.log(mergeSort([38, 27, 43, 3, 9, 82, 10]));
+                        
+
+                
+        </main>
+        <footer>
+            <p> Learn more: <a href="https://github.com/nina-mir/CSC317-assignments/blob/main/assignment-0/readme.md">Click here</a> </p>
+
+        </footer>
+        <style>
+        body{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color:white;
+            background-color: #231161;
+        }
+        
+        header{
+            text-align: center;
+            padding: 20px;
+            background-color: #ffdc74;
+            color: white;
+        }
+        
+        pre{
+            background-color: #ffdc74;
+            padding:10px;
+            border-radius: 5px;
+            color:black;
+        }
+        
+        footer{
+        color:#ffdc74
+        }
+        </style>
+    </body>
+</hmtl>
